@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Module of Users  
+""" Module of Users views
 """
 from api.v1.views import app_views
 from flask import abort, jsonify, request
@@ -10,7 +10,7 @@ from models.user import User
 def view_all_users() -> str:
     """ GET /api/v1/users
     Return:
-      - list of all User  
+      - list of all User objects JSON represented
     """
     all_users = [user.to_json() for user in User.all()]
     return jsonify(all_users)
@@ -23,14 +23,8 @@ def view_one_user(user_id: str = None) -> str:
       - User ID
     Return:
       - User object JSON represented
-      - 404  
+      - 404 if the User ID doesn't exist
     """
-
-    if user_id == "me":
-        if not request.current_user:
-            abort(404)
-        else:
-            return jsonify(request.current_user.to_json())
     if user_id is None:
         abort(404)
     user = User.get(user_id)
@@ -46,7 +40,7 @@ def delete_user(user_id: str = None) -> str:
       - User ID
     Return:
       - empty JSON is the User has been correctly deleted
-      - 404  
+      - 404 if the User ID doesn't exist
     """
     if user_id is None:
         abort(404)
@@ -67,7 +61,7 @@ def create_user() -> str:
       - first_name (optional)
     Return:
       - User object JSON represented
-      - 400  
+      - 400 if can't create the new User
     """
     rj = None
     error_msg = None
@@ -105,8 +99,8 @@ def update_user(user_id: str = None) -> str:
       - first_name (optional)
     Return:
       - User object JSON represented
-      - 404 
-      - 400 
+      - 404 if the User ID doesn't exist
+      - 400 if can't update the User
     """
     if user_id is None:
         abort(404)
