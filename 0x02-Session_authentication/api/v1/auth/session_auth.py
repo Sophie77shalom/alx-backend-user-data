@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-SessionAuth  
+SessionAuth module class
 """
 
 from api.v1.auth.auth import Auth
@@ -28,7 +28,7 @@ class SessionAuth(Auth):
 
     def user_id_for_session_id(self, session_id: str = None) -> str:
         """
-        user_id_for_session_id
+        user_id_for_session_id.
         """
         if not session_id or type(session_id) != str:
             return
@@ -58,4 +58,3 @@ class SessionAuth(Auth):
             return False
         self.user_id_by_session_id.pop(session_cookie, None)
         return True
-    
