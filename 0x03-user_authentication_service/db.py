@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""  implement the DB.find_user_by method
+"""   implement the add_user method
 """
 
 from sqlalchemy import create_engine
