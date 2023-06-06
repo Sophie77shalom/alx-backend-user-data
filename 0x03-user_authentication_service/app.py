@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""  Create a Flask app that has a single GET route ("/") and use flask.jsonify to return a JSON payload of the form
+"""  Create a Flask app 
 """
 
 from auth import Auth
