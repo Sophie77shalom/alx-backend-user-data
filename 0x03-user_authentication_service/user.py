@@ -26,3 +26,4 @@ class User(Base):
         String rep
         """
         return f"User: id={self.id}"
+    
