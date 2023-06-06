@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""  create a SQLAlchemy model named User
+"""  create a SQLAlchemy model named User for a database table
 """
 
 from sqlalchemy.ext.declarative import declarative_base
@@ -26,4 +26,3 @@ class User(Base):
         String rep
         """
         return f"User: id={self.id}"
-    
