@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""  define a _hash_password method that takes in a password string arguments and returns bytes
+"""  define a _hash_password method that takes in a password 
 """
 
 from db import DB
@@ -26,7 +26,7 @@ def _generate_uuid() -> str:
 
 class Auth:
     """
-    Auth class  
+    Auth class 
     """
 
     def __init__(self):
@@ -100,7 +100,7 @@ class Auth:
 
     def update_password(self, reset_token: str, password: str) -> None:
         """
-        update_password
+        update_password.
         """
         try:
             user = self._db.find_user_by(reset_token=reset_token)
@@ -109,4 +109,3 @@ class Auth:
                                  reset_token=None)
         except NoResultFound:
             raise ValueError
-        
